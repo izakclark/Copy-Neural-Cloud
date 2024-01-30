@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class TileBehaviour : MonoBehaviour
 {
-    public static bool isItStandHere = false;
-    private void OnCollisionEnter(Collision collision)
+    public bool isSomthingStand = false;
+
+    private void Start()
     {
-        isItStandHere = true;
+        Debug.Log(isSomthingStand);
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        isItStandHere = false;
+        isSomthingStand=true;
     }
+    private void OnTriggerExit(Collider other)
+    {
+        isSomthingStand=false;
+    }
+    
 }

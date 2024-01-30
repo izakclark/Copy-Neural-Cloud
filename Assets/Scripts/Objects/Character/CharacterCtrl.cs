@@ -1,25 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+public class HowLong
+{
+    public float dis
+    { get;  set; }
+    public GameObject enemy
+    {  get;  set; }
+
+    public HowLong(GameObject thisGameObj, GameObject enemyObj)
+    {
+        dis = Vector3.Distance(thisGameObj.transform.position,enemyObj.transform.position);
+        enemy = enemyObj;
+    }
+}
 public class CharacterCtrl : CharacterScript
 {
-    public enum curState
+    public GameObject tgt;
+    private void Start()
     {
-        Idle = 0,
-        Moving = 1,
-        Attacking = 2,
-
+        
     }
 
-    void Targeting()
+    private void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GetTarget();
+            
+        }
     }
+
+    void GetTarget()
+    {
+        List<HowLong> list = new List<HowLong>();
+        GameObject[] reaminEnemy = GameObject.FindGameObjectsWithTag("ENEMY");
+        foreach(GameObject obj in reaminEnemy)
+        {
+            list.Add(new HowLong(this.gameObject, obj));
+        }
+        list = list.OrderBy(x => x.dis).ToList();
+        tgt = list[0].enemy;
+    }
+
+    
 
     void FindPath()
     {
-
+        
     }
 
     void Move()

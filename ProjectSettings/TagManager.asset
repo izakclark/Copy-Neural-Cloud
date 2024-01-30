@@ -6,11 +6,12 @@ TagManager:
   tags:
   - P_CHAR
   - TILE
+  - ENEMY
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TILE
   - Water
   - UI
   - 

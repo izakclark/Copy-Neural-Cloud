@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 620209106761659195}
   - component: {fileID: 6356243645653040388}
   - component: {fileID: 8058068083632967824}
-  m_Layer: 0
+  - component: {fileID: -4949335607155635857}
+  - component: {fileID: 1943020532275597123}
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: TILE
   m_Icon: {fileID: 0}
@@ -566,7 +568,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1873
+  m_VersionIndex: 1876
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -661,8 +663,34 @@ MeshCollider:
   m_GameObject: {fileID: 4388044573567095504}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &-4949335607155635857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388044573567095504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb58b38a1f2bad48929ea2e8ef74916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSomthingStand: 0
+--- !u!135 &1943020532275597123
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388044573567095504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Center: {x: 0, y: 0, z: 0}
