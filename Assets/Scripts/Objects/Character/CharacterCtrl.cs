@@ -13,13 +13,14 @@ public class HowLong
 
     public HowLong(GameObject thisGameObj, GameObject enemyObj)
     {
-        dis = Vector3.Distance(thisGameObj.transform.position,enemyObj.transform.position);
+        dis = Vector3.Distance(thisGameObj.transform.position, enemyObj.transform.position);
         enemy = enemyObj;
     }
 }
 public class CharacterCtrl : CharacterScript
 {
     public GameObject tgt;
+    GameObject[] remainEnemies;
     private void Start()
     {
         
@@ -37,18 +38,25 @@ public class CharacterCtrl : CharacterScript
     void GetTarget()
     {
         List<HowLong> list = new List<HowLong>();
-        GameObject[] reaminEnemy = GameObject.FindGameObjectsWithTag("ENEMY");
-        foreach(GameObject obj in reaminEnemy)
+
+        if (this.gameObject.CompareTag("P_CHAR"))
+            remainEnemies = GameObject.FindGameObjectsWithTag("ENEMY");
+
+        else
+            remainEnemies = GameObject.FindGameObjectsWithTag("P_CHAR");
+
+        foreach(GameObject obj in remainEnemies)
         {
             list.Add(new HowLong(this.gameObject, obj));
         }
+
         list = list.OrderBy(x => x.dis).ToList();
         tgt = list[0].enemy;
     }
 
-    
 
-    void FindPath()
+
+    void PathFind()
     {
         
     }
